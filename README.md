@@ -10,7 +10,7 @@ $post_type_script = 'cust_post_type';
 <br />
 
 ## Load backend assets:
-* Edit the path of the folder with the path where you uploaded the files *
+* Edit the path containing the assets *
 ```php
 /* Assets for backend
 ------------------------- */
@@ -18,8 +18,8 @@ add_action( 'admin_init', function () {
     global $pagenow;
     if ( ($pagenow == 'post.php' && isset($_GET['post']) && $_GET['action'] == 'edit') || ($pagenow == 'post-new.php' && $_GET['post_type'] == $post_type_script) ) {
 	add_action( 'admin_enqueue_scripts', function () {
-	    wp_enqueue_style(  sprintf( '%s_css', $post_type_script), '/assets/post_types/css/post_type.css' );
-	    wp_enqueue_script( sprintf( '%s_js', $post_type_script),  '/assets/post_types/js/post_type.js', array( 'jquery' ), false, true  );
+	    wp_enqueue_style(  sprintf( '%s_css', $post_type_script), 'post_type.css' );
+	    wp_enqueue_script( sprintf( '%s_js', $post_type_script),  'post_type.js', array( 'jquery' ), false, true  );
 	});
     }
 });
